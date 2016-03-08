@@ -1,5 +1,2 @@
 /.idea/*
 /**/*.js.map
-
-/1_angular2-quickstart/app/**/*.js
-/2_tour_of_heros/app/**/*.js
