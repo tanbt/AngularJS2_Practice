@@ -8,12 +8,19 @@ interface Hero {
 @Component({
     selector: 'my-app',
     template:`
-        <h2>My Heroes</h2>
         <ul class="heroes">
-            <li *ngFor="#hero of heroes">
+            <li *ngFor="#hero of heroes" (click)="onSelect(hero)">
                 <span class="badge">{{hero.id}}</span>{{hero.name}}
             </li>
         </ul>
+        <div *ngIf="selectedHero">
+            <h2>{{selectedHero.name}} details!</h2>
+            <div><label>id: </label>{{selectedHero.id}}</div>
+            <div>
+                <label>name: </label>
+            <input [(ngModel)]="selectedHero.name" placeholder="name"/>
+            </div>
+        </div>
     `,
     styles:[`
         .selected {
@@ -31,7 +38,7 @@ interface Hero {
             position: relative;
             left: 0;
             background-color: #EEE;
-            margin: .5em;
+            margin: .2em;
             padding: .3em 0;
             height: 1.6em;
             border-radius: 4px;
@@ -73,6 +80,9 @@ export class AppComponent {
         name: 'Windstorm'
     };
     public heroes = HEROES;
+    selectedHero: Hero;
+
+    onSelect(hero: Hero) { this.selectedHero = hero; }
 }
 
 //this data may come from other services (PHP, API,...)
