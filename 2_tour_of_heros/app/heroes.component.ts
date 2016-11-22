@@ -8,8 +8,7 @@ import { HeroService } from './hero.service';
   moduleId: module.id,
   selector: 'my-heroes',
   templateUrl: 'heroes.component.html',
-  styleUrls: [`heroes.component.css`],
-  providers: [HeroService]    //don't need provider for built-in Router
+  styleUrls: [`heroes.component.css`]
 })
 
 export class HeroesComponent implements OnInit {
